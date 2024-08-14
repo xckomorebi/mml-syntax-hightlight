@@ -1,0 +1,57 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "mml",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}, 
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.mml",
+				"match": "\\b(ADD|MOD|RMV|DSP|LST)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.mml",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mml",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.mml",
+					"match": "//.*$"
+				},
+				{ "name": "comment.block.mml", "begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.mml",
+					"match": "\\b\\d+\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.mml"
+}
